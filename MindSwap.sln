@@ -15,7 +15,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{021EE381-1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{FD1C90F1-4BE0-4D9C-92CC-4EFCB0E6C9F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindSwap.Domain", "MindSwap.Domain\MindSwap.Domain.csproj", "{69475C14-F814-4B50-8C45-885037F9DA9D}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69475C14-F814-4B50-8C45-885037F9DA9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69475C14-F814-4B50-8C45-885037F9DA9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69475C14-F814-4B50-8C45-885037F9DA9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69475C14-F814-4B50-8C45-885037F9DA9D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
@@ -24,6 +36,7 @@ Global
 		{1AAB5FD7-72EC-443A-9313-E00773CE1FB5} = {9FDAED4D-402C-4038-8127-32C442B36776}
 		{021EE381-1DAD-4E99-8486-59E11921C1EA} = {9FDAED4D-402C-4038-8127-32C442B36776}
 		{FD1C90F1-4BE0-4D9C-92CC-4EFCB0E6C9F1} = {9FDAED4D-402C-4038-8127-32C442B36776}
+		{69475C14-F814-4B50-8C45-885037F9DA9D} = {021EE381-1DAD-4E99-8486-59E11921C1EA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4DD6C5DA-F286-4789-A96E-8E6CE49E6839}
