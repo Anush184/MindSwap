@@ -1,12 +1,13 @@
-﻿using System;
+﻿using MindSwap.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MindSwap.Domain
+namespace MindSwap.Application.Features.CategoryFeature.Queries.GetCategoryDetails
 {
-    public class Category
+    public class CategoryDetailsDto
     {
         public int CategoryId { get; set; }
         public string Name { get; set; } = string.Empty;
