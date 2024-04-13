@@ -22,9 +22,7 @@ namespace MindSwap.Application.Features.CategoryFeature.Queries.GetCategoryDetai
         public async Task<CategoryDetailsDto> Handle(GetCategoryDetailsQuery request, CancellationToken cancellationToken)
         {
             var categories = await _categoryRepository.GetByIdAsync(request.Id);
-
             var data = _mapper.Map<CategoryDetailsDto>(categories);
-
             return data;
         }
     }
