@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
 using MindSwap.Application.Contracts.Persistence;
+using MindSwap.Application.Exceptions;
+using MindSwap.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +23,10 @@ namespace MindSwap.Application.Features.CategoryFeature.Queries.GetCategoryDetai
         }
         public async Task<CategoryDetailsDto> Handle(GetCategoryDetailsQuery request, CancellationToken cancellationToken)
         {
-            var categories = await _categoryRepository.GetByIdAsync(request.Id);
-            var data = _mapper.Map<CategoryDetailsDto>(categories);
+            var category = await _categoryRepository.GetByIdAsync(request.CategoryId)??
+                throw new NotFoundException(nameof(Category), request.CategoryId);
+            
+            var data = _mapper.Map<CategoryDetailsDto>(category);
             return data;
         }
     }
