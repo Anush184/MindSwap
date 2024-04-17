@@ -1,4 +1,6 @@
-﻿namespace MindSwap.Application.Exceptions
+﻿using System;
+
+namespace MindSwap.Application.Exceptions
 {
     public class BadRequestException : Exception
     {
