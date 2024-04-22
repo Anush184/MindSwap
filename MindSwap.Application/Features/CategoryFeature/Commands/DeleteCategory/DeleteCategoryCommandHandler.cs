@@ -22,8 +22,8 @@ namespace MindSwap.Application.Features.CategoryFeature.Commands.DeleteCategory
         public async Task<Unit> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
         {
             //retrieve domain entity object
-            var categoryToDelete = await _categoryRepository.GetByIdAsync(request.CategoryId)??
-                      throw new NotFoundException(nameof(Category), request.CategoryId);
+            var categoryToDelete = await _categoryRepository.GetByIdAsync(request.Id)??
+                      throw new NotFoundException(nameof(Category), request.Id);
             
             //remove from database
             await _categoryRepository.DeleteAsync(categoryToDelete);

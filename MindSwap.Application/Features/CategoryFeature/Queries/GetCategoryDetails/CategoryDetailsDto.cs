@@ -9,7 +9,7 @@ namespace MindSwap.Application.Features.CategoryFeature.Queries.GetCategoryDetai
 {
     public class CategoryDetailsDto
     {
-        public int CategoryId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public ICollection<Post>? Posts { get; set; }

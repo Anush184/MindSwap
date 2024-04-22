@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace MindSwap.Application.Features.CategoryFeature.Queries.GetCategoryDetails
 {
-    public record  GetCategoryDetailsQuery(int CategoryId) : IRequest<CategoryDetailsDto>;
+    public record  GetCategoryDetailsQuery(int Id) : IRequest<CategoryDetailsDto>;
   
 }
