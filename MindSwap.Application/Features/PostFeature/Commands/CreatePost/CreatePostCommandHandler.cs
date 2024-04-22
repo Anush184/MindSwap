@@ -26,6 +26,7 @@ namespace MindSwap.Application.Features.PostFeature.Commands.CreatePost
         {
             var validator = new CreatePostCommandValidator(_postRepository);
             var validationResult = await validator.ValidateAsync(request);
+
             if (validationResult.Errors.Any())
             {
                 throw new BadRequestException("Invalid Post", validationResult);
