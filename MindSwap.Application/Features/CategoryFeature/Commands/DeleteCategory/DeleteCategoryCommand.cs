@@ -9,6 +9,6 @@ namespace MindSwap.Application.Features.CategoryFeature.Commands.DeleteCategory
 {
     public class DeleteCategoryCommand: IRequest<Unit>
     {
-        public int CategoryId { get; set; }
+        public int Id { get; set; }
     }
 }
