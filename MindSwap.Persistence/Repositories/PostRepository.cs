@@ -25,6 +25,16 @@ namespace MindSwap.Persistence.Repositories
             return posts;
         }
 
+        public async Task<Post> GetPostWithDetails(int id)
+        {
+            var post = await _context.Posts
+               .Include(p => p.Category)
+               .Include(p => p.Comments)
+               .FirstOrDefaultAsync(p => p.Id == id);
+
+            return post;
+        }
+
         public async Task<bool> IsPostUnique(string content)
         {
             return await _context.Posts.AnyAsync(q => q.Content == content);

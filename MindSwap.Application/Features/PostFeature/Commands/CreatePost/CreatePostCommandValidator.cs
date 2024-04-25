@@ -1,6 +1,8 @@
 ﻿using FluentValidation;
 using MindSwap.Application.Contracts.Persistence;
 using MindSwap.Application.Features.CategoryFeature.Commands.CreateCategory;
+using MindSwap.Application.Features.PostFeature.Commands.UpdatePost;
+using MindSwap.Application.Features.PostFeature.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,28 +14,14 @@ namespace MindSwap.Application.Features.PostFeature.Commands.CreatePost
     public class CreatePostCommandValidator:
          AbstractValidator<CreatePostCommand>
     {
+        private readonly ICategoryRepository _categoryRepository;
         private readonly IPostRepository _postRepository;
 
-        public CreatePostCommandValidator(IPostRepository postRepository)
+        public CreatePostCommandValidator(ICategoryRepository categoryRepository, IPostRepository postRepository)
         {
-            this._postRepository = postRepository;
-
-            RuleFor(p => p.Content)
-                .NotEmpty().WithMessage("{PropertyName} is required")
-                .NotNull();
-
-            RuleFor(p => p)
-                .MustAsync(PostContentUnique)
-                .WithMessage("Post already exists");
-            RuleFor(p => p.CategoryId)
-                 .NotNull();
-
+            _categoryRepository = categoryRepository;
+            _postRepository = postRepository;
+            Include(new BasePostValidator(_categoryRepository, _postRepository));
         }
-
-        private Task<bool> PostContentUnique(CreatePostCommand command, CancellationToken arg2)
-        {
-            return _postRepository.IsPostUnique(command.Content);
-        }
-
     }
 }

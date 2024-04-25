@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindSwap.Persistence", "Min
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindSwap.Infrastructure", "MindSwap.Infrastructure\MindSwap.Infrastructure.csproj", "{93D7FA95-AAAB-4CB9-922B-3956239D046F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindSwap.Api", "MindSwap.Api\MindSwap.Api.csproj", "{C5448308-9A42-464D-9EE2-C72DCC5B4C03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindSwap.Api", "MindSwap.Api\MindSwap.Api.csproj", "{C5448308-9A42-464D-9EE2-C72DCC5B4C03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindSwap.Application.UnitTests", "MindSwap.Application.UnitTests\MindSwap.Application.UnitTests.csproj", "{702C7E4B-DC4A-4392-9F65-68C3DB083C79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{C5448308-9A42-464D-9EE2-C72DCC5B4C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5448308-9A42-464D-9EE2-C72DCC5B4C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5448308-9A42-464D-9EE2-C72DCC5B4C03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{702C7E4B-DC4A-4392-9F65-68C3DB083C79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{702C7E4B-DC4A-4392-9F65-68C3DB083C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{702C7E4B-DC4A-4392-9F65-68C3DB083C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{702C7E4B-DC4A-4392-9F65-68C3DB083C79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +71,7 @@ Global
 		{09AE1B83-DD9C-4341-A743-7C820861DDA2} = {FD1C90F1-4BE0-4D9C-92CC-4EFCB0E6C9F1}
 		{93D7FA95-AAAB-4CB9-922B-3956239D046F} = {FD1C90F1-4BE0-4D9C-92CC-4EFCB0E6C9F1}
 		{C5448308-9A42-464D-9EE2-C72DCC5B4C03} = {5B16B11C-9CF5-46C2-B627-A0D5556D4323}
+		{702C7E4B-DC4A-4392-9F65-68C3DB083C79} = {9BBB1A47-FCA8-47CA-A57B-0F5E08AC1F0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4DD6C5DA-F286-4789-A96E-8E6CE49E6839}

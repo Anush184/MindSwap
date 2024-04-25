@@ -14,6 +14,8 @@ namespace MindSwap.Domain
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public ICollection<Comment>? Comments { get; set; }
+        public bool Cancelled { get; set; }
+        public bool? Approved { get; set; }
        
     }
 }
