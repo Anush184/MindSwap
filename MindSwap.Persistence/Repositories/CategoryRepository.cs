@@ -24,13 +24,13 @@ namespace MindSwap.Persistence.Repositories
 
         public async  Task<bool> CategoryExists(string name)
         {
-            return await _context.Categories.AnyAsync(q => q.Name == name);
+            return await _context.Categories.AnyAsync(c => c.Name == name);
         }
 
         public async Task<IReadOnlyList<Category>> GetCategoriesWithDetails()
         {
             var categories = await _context.Categories
-                .Include(q => q.Posts)
+                .Include(c => c.Posts)
                 .ToListAsync();
             return categories;
         }
@@ -38,8 +38,8 @@ namespace MindSwap.Persistence.Repositories
         public async Task<IReadOnlyList<Post>> GetCategoryPosts(int id)
         {
             var posts = await _context.Categories
-                .Where(q => q.Id == id)
-                .SelectMany(q => q.Posts)
+                .Where(c => c.Id == id)
+                .SelectMany(c => c.Posts)
                 .ToListAsync();
 
             return posts;
@@ -56,7 +56,7 @@ namespace MindSwap.Persistence.Repositories
 
         public async Task<bool> IsCategoryUnique(string name)
         {
-            return await _context.Categories.AnyAsync(q => q.Name == name);
+            return await _context.Categories.AnyAsync(c => c.Name == name) == false;
         }
     }
 }

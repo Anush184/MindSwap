@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MindSwap.Application.Contracts.Persistence;
 using MindSwap.Application.Features.CategoryFeature.Commands.CreateCategory;
+using MindSwap.Application.Features.CommentFeature.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,19 +13,12 @@ namespace MindSwap.Application.Features.CommentFeature.Commands.CreateComment
     public class CreateCommentCommandValidator:
          AbstractValidator<CreateCommentCommand>
     {
-        private readonly ICommentRepository _commentRepository;
+        private readonly IPostRepository _postRepository;
 
-        public CreateCommentCommandValidator(ICommentRepository commentRepository)
+        public CreateCommentCommandValidator(IPostRepository postRepository)
         {
-            this._commentRepository = commentRepository;
-
-            RuleFor(c => c.Content)
-                .NotEmpty().WithMessage("{PropertyName} is required")
-                .NotNull();
-            RuleFor(c => c.Post)
-                .NotNull();
-
+            _postRepository = postRepository;
+            Include(new BaseCommentValidator(_postRepository));
         }
-
     }
 }

@@ -19,14 +19,14 @@ namespace MindSwap.Application.Features.CategoryFeature.Queries.GetAllCategories
         public GetCategoriesQueryHandler(IMapper mapper, ICategoryRepository categoryRepository, 
             IAppLogger<GetCategoriesQueryHandler> logger)
         {
-            this._mapper = _mapper;
-            this._categoryRepository = categoryRepository;
-            this._logger = logger;
+            _mapper = mapper;
+            _categoryRepository = categoryRepository;
+            _logger = logger;
         }
 
         public async Task<List<CategoryDto>> Handle(GetCategoriesQuery request, CancellationToken cancellationToken)
         {
-            var categories = await _categoryRepository.GetAsync();
+            var categories = await _categoryRepository.GetCategoriesWithDetails();
             var data =  _mapper.Map<List<CategoryDto>>(categories);
             _logger.LogInformation("Categories were retrieved successfully");
             return data;

@@ -12,19 +12,22 @@ using System.Threading.Tasks;
 
 namespace MindSwap.Application.Features.CommentFeature.Commands.CreateComment
 {
-    public class CreateCommentCommandHandler: IRequestHandler<CreateCommentCommand, int>
+    public class CreateCommentCommandHandler: IRequestHandler<CreateCommentCommand, Unit>
     {
         private readonly IMapper _mapper;
         private readonly ICommentRepository _commentRepository;
+        private readonly IPostRepository _postRepository;
 
-        public CreateCommentCommandHandler(IMapper mapper, ICommentRepository commentRepository)
+        public CreateCommentCommandHandler(IMapper mapper, ICommentRepository commentRepository,
+            IPostRepository postRepository)
         {
             this._mapper = mapper;
             this._commentRepository = commentRepository;
+            this._postRepository = postRepository;
         }
-        public async Task<int> Handle(CreateCommentCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateCommentCommand request, CancellationToken cancellationToken)
         {
-            var validator = new CreateCommentCommandValidator(_commentRepository);
+            var validator = new CreateCommentCommandValidator(_postRepository);
             var validationResult = await validator.ValidateAsync(request);
             if (validationResult.Errors.Any())
             {
@@ -34,7 +37,7 @@ namespace MindSwap.Application.Features.CommentFeature.Commands.CreateComment
             var commentToCreate = _mapper.Map<Comment>(request);
             await _commentRepository.CreateAsync(commentToCreate);
            
-            return commentToCreate.Id;
+            return Unit.Value;
         }
     }
 }
