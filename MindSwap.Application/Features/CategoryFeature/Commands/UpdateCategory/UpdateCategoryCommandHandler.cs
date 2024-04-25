@@ -34,9 +34,14 @@ namespace MindSwap.Application.Features.CategoryFeature.Commands.UpdateCategory
                 _logger.LogWarning("Validation errors in update request for {0} - {1}", nameof(Category), request.Id);
                 throw new BadRequestException("Invalid Category", validationResult);
             }
-            
-            var categoryToUpdate = _mapper.Map<Category>(request);
-            await _categoryRepository.UpdateAsync(categoryToUpdate);
+            var category = await _categoryRepository.GetByIdAsync(request.Id);
+            if (category is null)
+            {
+                throw new NotFoundException(nameof(Category), request.Id);
+            }
+            _mapper.Map(request, category);
+             //var categoryToUpdate = _mapper.Map<Category>(request);
+            await _categoryRepository.UpdateAsync(category);
             return Unit.Value;
         }
     }

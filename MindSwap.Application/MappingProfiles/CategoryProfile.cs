@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MindSwap.Application.Features.CategoryFeature.Commands.CreateCategory;
+using MindSwap.Application.Features.CategoryFeature.Commands.UpdateCategory;
 using MindSwap.Application.Features.CategoryFeature.Queries.GetAllCategories;
 using MindSwap.Application.Features.CategoryFeature.Queries.GetCategoryDetails;
 using MindSwap.Domain;
@@ -16,6 +18,8 @@ namespace MindSwap.Application.MappingProfiles
         {
             CreateMap<CategoryDto, Category>().ReverseMap();
             CreateMap<CategoryDetailsDto, Category>().ReverseMap();
+            CreateMap<CreateCategoryCommand, Category>();
+            CreateMap<UpdateCategoryCommand, Category>();
         }
     }
 }

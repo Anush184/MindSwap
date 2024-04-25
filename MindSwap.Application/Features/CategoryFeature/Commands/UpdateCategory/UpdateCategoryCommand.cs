@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using MindSwap.Application.Features.CategoryFeature.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace MindSwap.Application.Features.CategoryFeature.Commands.UpdateCategory
 {
-    public class UpdateCategoryCommand: IRequest<Unit>
+    public class UpdateCategoryCommand: BaseCategory, IRequest<Unit>
     {
         public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
     }
 }

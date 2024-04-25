@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using MindSwap.Application.Features.CommentFeature.Shared;
 using MindSwap.Domain;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,8 @@ using System.Threading.Tasks;
 
 namespace MindSwap.Application.Features.CommentFeature.Commands.CreateComment
 {
-    public class CreateCommentCommand : IRequest<int>
+    public class CreateCommentCommand : BaseComment, IRequest
     {
-        public string Content { get; set; } = string.Empty;
-        public int PostId { get; set; }
-        public Post Post { get; set; }
+
     }
 }

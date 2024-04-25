@@ -14,7 +14,6 @@ namespace MindSwap.Application.Features.CommentFeature.Commands.DeleteComment
 {
     public class DeleteCommentCommandHandler: IRequestHandler<DeleteCommentCommand, Unit>
     {
-        private readonly IMapper _mapper;
         private readonly ICommentRepository _commentRepository;
 
         public DeleteCommentCommandHandler(ICommentRepository commentRepository) =>
