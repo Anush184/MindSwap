@@ -1,5 +1,7 @@
 ﻿
 
+using System;
+using System.Collections.Generic;
 using FluentValidation.Internal;
 using FluentValidation.Results;
 

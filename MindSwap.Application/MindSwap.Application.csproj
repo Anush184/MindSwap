@@ -18,4 +18,16 @@
     <ProjectReference Include="..\MindSwap.Domain\MindSwap.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Features\UserFeature\Commands\DeletePost\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Features\UserFeature\Commands\DeletePost\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Features\UserFeature\Commands\DeletePost\**" />
+  </ItemGroup>
+
 </Project>

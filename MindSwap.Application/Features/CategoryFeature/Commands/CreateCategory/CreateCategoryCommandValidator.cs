@@ -7,17 +7,20 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MindSwap.Application.Features.CategoryFeature.Commands.CreateCategory;
 
-namespace MindSwap.Application.Features.CategoryFeature.Commands.CreateCategory;
-
-public class CreateCategoryCommandValidator: 
-    AbstractValidator<CreateCategoryCommand>
+namespace MindSwap.Application.Features.CategoryFeature.Commands.CreateCategory
 {
-    private readonly ICategoryRepository _categoryRepository;
 
-    public CreateCategoryCommandValidator(ICategoryRepository categoryRepository)
+    public class CreateCategoryCommandValidator :
+        AbstractValidator<CreateCategoryCommand>
     {
-        _categoryRepository = categoryRepository;
-        Include(new BaseCategoryValidator(_categoryRepository));
+        private readonly ICategoryRepository _categoryRepository;
+
+        public CreateCategoryCommandValidator(ICategoryRepository categoryRepository)
+        {
+            _categoryRepository = categoryRepository;
+            Include(new BaseCategoryValidator(_categoryRepository));
+        }
     }
 }

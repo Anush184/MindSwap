@@ -1,7 +1,10 @@
-﻿using MindSwap.Api.Models;
+﻿using System;
+using MindSwap.Api.Models;
 using MindSwap.Application.Exceptions;
 using System.Linq.Expressions;
 using System.Net;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace MindSwap.Api.Middleware
 {

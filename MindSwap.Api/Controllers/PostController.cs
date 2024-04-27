@@ -1,5 +1,8 @@
-﻿using MediatR;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MindSwap.Application.Features.PostFeature.Commands.CancelPost;
 using MindSwap.Application.Features.PostFeature.Commands.ChangePostApproval;
