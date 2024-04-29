@@ -12,9 +12,8 @@ using System.Threading.Tasks;
 
 namespace MindSwap.Application.Features.PostFeature.Commands.DeletePost
 {
-    public class DeletePostCommandHandler: IRequestHandler<DeletePostCommand, Unit>
+    public class DeletePostCommandHandler: IRequestHandler<DeletePostCommand>
     {
-        private readonly IMapper _mapper;
         private readonly IPostRepository _postRepository;
 
         public DeletePostCommandHandler(IPostRepository postRepository) =>

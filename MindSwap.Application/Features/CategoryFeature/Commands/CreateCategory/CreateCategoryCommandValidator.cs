@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using MindSwap.Application.Contracts.Persistence;
+using MindSwap.Application.Features.CategoryFeature.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,23 +17,7 @@ public class CreateCategoryCommandValidator:
 
     public CreateCategoryCommandValidator(ICategoryRepository categoryRepository)
     {
-        this._categoryRepository = categoryRepository;
-
-        RuleFor(c => c.Name)
-            .NotEmpty().WithMessage("{PropertyName} is required")
-            .NotNull()
-            .MaximumLength(100).WithMessage("{PropertyName} must be fewer than 100 characters");
-
-            RuleFor(c => c.Description)
-            .MaximumLength(800).WithMessage("{PropertyName} must be fewer than 800 characters");
-        RuleFor(c => c)
-            .MustAsync(CategoryNameUnique)
-            .WithMessage("Category already exists");
-        
-    }
-
-    private Task<bool> CategoryNameUnique(CreateCategoryCommand command, CancellationToken token)
-    {
-        return _categoryRepository.IsCategoryUnique(command.Name);
+        _categoryRepository = categoryRepository;
+        Include(new BaseCategoryValidator(_categoryRepository));
     }
 }

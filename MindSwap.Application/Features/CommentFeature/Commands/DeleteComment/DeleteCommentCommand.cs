@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MindSwap.Application.Features.CommentFeature.Commands.DeleteComment
 {
-    public class DeleteCommentCommand : IRequest<Unit>
+    public class DeleteCommentCommand : IRequest
     {
         public int Id { get; set; }
     }

@@ -13,7 +13,6 @@ namespace MindSwap.Application.Features.CategoryFeature.Commands.DeleteCategory
 {
     public class DeleteCategoryCommandHandler : IRequestHandler<DeleteCategoryCommand, Unit>
     {
-        private readonly IMapper _mapper;
         private readonly ICategoryRepository _categoryRepository;
 
         public DeleteCategoryCommandHandler(ICategoryRepository categoryRepository)=>
