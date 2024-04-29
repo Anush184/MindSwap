@@ -36,7 +36,7 @@ namespace MindSwap.Application.UnitTests.Mocks
             };
 
             var mockRepo = new Mock<ICategoryRepository>();
-            mockRepo.Setup(r => r.GetAsync()).ReturnsAsync(categories);
+            mockRepo.Setup(r => r.GetCategoriesWithDetails()).ReturnsAsync(categories);
             mockRepo.Setup(r => r.CreateAsync(It.IsAny<Category>()))
                 .Returns((Category category) =>
                 {

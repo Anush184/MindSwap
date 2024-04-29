@@ -1,0 +1,66 @@
+﻿@page "/categories/"
+<h3>Categories</h3>
+
+<div class="m-2 d-flex justify-content-nd">
+    <button @onclick="CreateCategory" class="btn btn-success">Add Category</button>
+
+</div>
+@if(string.IsNullOrEmpty(Message) == false)
+{
+    <div class="alert alert-danger">
+        @Message
+    </div>
+}
+
+@if (Categories == null)
+{
+    <p>Loading data...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tblody>
+            @foreach(var category in Categories)
+            {
+                <tr>
+                    <td>@category.Id</td>
+                    <td>@category.Name</td>
+                    <td>@category.Description</td>
+                    <td>
+                        <button onclick=@(()=> ChooseCategory(category.Id))>
+                            class="btn btn-dark"
+                            Choose Category
+                        </button>
+                        <button onclick=@(()=> EditCategory(category.Id))>
+                            class="btn btn-warning"
+                            Edit
+                        </button>
+                        <button onclick=@(()=> DetailsCategory(category.Id))>
+                            class="btn btn-info"
+                            Details
+                        </button>
+                        <button onclick=@(()=> DeleteCategory(category.Id))>
+                            class="btn btn-danger"
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tblody>
+
+    </table>
+}

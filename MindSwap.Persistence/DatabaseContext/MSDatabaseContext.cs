@@ -31,7 +31,7 @@ namespace MindSwap.Persistence.DatabaseContext
             foreach(var entry in ChangeTracker.Entries<BaseEntity>()
                 .Where(q => q.State == EntityState.Added || q.State == EntityState.Modified))
             {
-                entry.Entity.DateModifired = DateTime.UtcNow;
+                entry.Entity.DateModified = DateTime.UtcNow;
                 if (entry.State == EntityState.Added)
                 {
                     entry.Entity.DateCreated = DateTime.Now;

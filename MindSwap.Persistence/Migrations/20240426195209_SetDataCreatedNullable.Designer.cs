@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MindSwap.Persistence.DatabaseContext;
 
@@ -11,9 +12,11 @@ using MindSwap.Persistence.DatabaseContext;
 namespace MindSwap.Persistence.Migrations
 {
     [DbContext(typeof(MSDatabaseContext))]
-    partial class MSDatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20240426195209_SetDataCreatedNullable")]
+    partial class SetDataCreatedNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -110,10 +113,6 @@ namespace MindSwap.Persistence.Migrations
 
                     b.Property<DateTime?>("DateModified")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
