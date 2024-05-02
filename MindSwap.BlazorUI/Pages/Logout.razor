@@ -1,0 +1,14 @@
+﻿@page "/logout"
+@using MindSwap.BlazorUI.Contracts;
+@inject IAuthenticationService authService
+@inject NavigationManager navManager
+<h3>Logout</h3>
+
+@code {
+    protected override async void OnInitialized()
+    {
+        await authService.Logout();
+        navManager.NavigateTo("/");
+    }
+
+}

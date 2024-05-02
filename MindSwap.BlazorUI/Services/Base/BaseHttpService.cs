@@ -1,11 +1,23 @@
-﻿namespace MindSwap.BlazorUI.Services.Base
+﻿using Blazored.LocalStorage;
+using System.Net.Http.Headers;
+
+namespace MindSwap.BlazorUI.Services.Base
 {
     public class BaseHttpService
     {
         protected IClient _client;
-        public BaseHttpService(IClient client)
+        private IClient client;
+        protected readonly ILocalStorageService _localStorage;
+
+        public BaseHttpService(IClient client, ILocalStorageService localStorage)
         {
             _client = client;
+            this._localStorage = localStorage;
+        }
+
+        public BaseHttpService(IClient client)
+        {
+            this.client = client;
         }
 
         protected Response<Guid> ConvertApiExceptions<Guid>(ApiException ex)
@@ -34,6 +46,16 @@
                     Message = "Something went wrong, please try again later.",
                     Success = false
                 };
+            }
+        }
+
+        protected async Task AddBearerToken()
+        {
+            if(await _localStorage.ContainKeyAsync("token"))
+            {
+                _client.HttpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", await
+                    _localStorage.GetItemAsync<string>("token"));
             }
         }
     }

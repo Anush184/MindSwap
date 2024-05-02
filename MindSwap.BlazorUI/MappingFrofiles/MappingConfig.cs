@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using MindSwap.BlazorUI.Moduls.Categories;
+using MindSwap.BlazorUI.Models.Categories;
 using MindSwap.BlazorUI.Services.Base;
 
 namespace MindSwap.BlazorUI.MappingFrofiles

@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindSwap.Persistence.Integr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindSwap.BlazorUI", "MindSwap.BlazorUI\MindSwap.BlazorUI.csproj", "{216800C6-99D7-4D5D-ADD3-96A71D05C90A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindSwap.Identity", "MindSwap.Identity\MindSwap.Identity.csproj", "{452E6326-FBA4-4FBA-A5C5-BC9AAF3497A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{216800C6-99D7-4D5D-ADD3-96A71D05C90A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{216800C6-99D7-4D5D-ADD3-96A71D05C90A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{216800C6-99D7-4D5D-ADD3-96A71D05C90A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{452E6326-FBA4-4FBA-A5C5-BC9AAF3497A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{452E6326-FBA4-4FBA-A5C5-BC9AAF3497A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{452E6326-FBA4-4FBA-A5C5-BC9AAF3497A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{452E6326-FBA4-4FBA-A5C5-BC9AAF3497A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +92,7 @@ Global
 		{702C7E4B-DC4A-4392-9F65-68C3DB083C79} = {9BBB1A47-FCA8-47CA-A57B-0F5E08AC1F0A}
 		{CA902C10-E2B9-4D67-B584-88E153879F19} = {9BBB1A47-FCA8-47CA-A57B-0F5E08AC1F0A}
 		{216800C6-99D7-4D5D-ADD3-96A71D05C90A} = {1AAB5FD7-72EC-443A-9313-E00773CE1FB5}
+		{452E6326-FBA4-4FBA-A5C5-BC9AAF3497A8} = {FD1C90F1-4BE0-4D9C-92CC-4EFCB0E6C9F1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4DD6C5DA-F286-4789-A96E-8E6CE49E6839}

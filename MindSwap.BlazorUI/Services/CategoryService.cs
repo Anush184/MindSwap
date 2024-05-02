@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
+using Blazored.LocalStorage;
 using MindSwap.BlazorUI.Contracts;
-using MindSwap.BlazorUI.Moduls.Categories;
+using MindSwap.BlazorUI.Models.Categories;
 using MindSwap.BlazorUI.Services.Base;
 
 namespace MindSwap.BlazorUI.Services
@@ -9,15 +10,16 @@ namespace MindSwap.BlazorUI.Services
     {
         private readonly IMapper _mapper;
 
-        public CategoryService(IClient client, IMapper mapper) : base(client)
+        public CategoryService(IMapper mapper ,IClient client, ILocalStorageService localStorage) : base(client, localStorage)
         {
-            this._mapper = mapper;
+            _mapper = mapper;
         }
 
         public async Task<Response<Guid>> CreateCategory(CategoryVM category)
         {
             try
             {
+                await AddBearerToken();
                 var createCategoryCommand = _mapper.Map<CreateCategoryCommand>(category);
                 await _client.CategoriesPOSTAsync(createCategoryCommand);
                 return new Response<Guid>
@@ -36,6 +38,7 @@ namespace MindSwap.BlazorUI.Services
         {
             try
             {
+                await AddBearerToken();
                 await _client.CategoriesDELETEAsync(id);
                 return new Response<Guid>
                 {
@@ -50,6 +53,7 @@ namespace MindSwap.BlazorUI.Services
 
         public async Task<List<CategoryVM>> GetCategories()
         {
+            await AddBearerToken();
             var categories = await _client.CategoriesAllAsync();
             return _mapper.Map<List<CategoryVM>>(categories);
 
@@ -57,6 +61,7 @@ namespace MindSwap.BlazorUI.Services
 
         public async Task<CategoryVM> GetCategoryDetails(int id)
         {
+            await AddBearerToken();
             var category = await _client.CategoriesGETAsync(id);
             return _mapper.Map<CategoryVM>(category);
         }
@@ -65,6 +70,7 @@ namespace MindSwap.BlazorUI.Services
         {
             try
             {
+                await AddBearerToken();
                 var updateCategoryCommand = _mapper.Map<UpdateCategoryCommand>(category);
                 await _client.CategoriesPUTAsync(id.ToString(),updateCategoryCommand);
                 return new Response<Guid>

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using MindSwap.BlazorUI.Contracts;
-using MindSwap.BlazorUI.Moduls.Categories;
+using MindSwap.BlazorUI.Models.Categories;
 
 namespace MindSwap.BlazorUI.Pages.Categories
 {
@@ -15,10 +15,6 @@ namespace MindSwap.BlazorUI.Pages.Categories
         protected void CreateCategory()
         {
             NavigationManager.NavigateTo("/categories/create/");
-        }
-        protected void ChooseCategory(int id)
-        {
-            //
         }
         protected void EditCategory(int id)
         {
