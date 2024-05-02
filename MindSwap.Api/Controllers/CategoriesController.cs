@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MindSwap.Application.Features.CategoryFeature.Commands.CreateCategory;
 using MindSwap.Application.Features.CategoryFeature.Commands.DeleteCategory;
@@ -13,7 +14,7 @@ namespace MindSwap.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+     public class CategoriesController : ControllerBase
     {
         private readonly IMediator _mediator;
 
@@ -41,6 +42,7 @@ namespace MindSwap.Api.Controllers
         [HttpPost]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
+        [Authorize(Roles ="Administrator")]
         public async Task<ActionResult> Post(CreateCategoryCommand category)
         {
             var response = await _mediator.Send(category);
@@ -53,6 +55,7 @@ namespace MindSwap.Api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesDefaultResponseType]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult> Put(UpdateCategoryCommand category)
         {
             await _mediator.Send(category);
@@ -64,6 +67,7 @@ namespace MindSwap.Api.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult> Delete(int id)
         {
             var command = new DeleteCategoryCommand { Id = id };

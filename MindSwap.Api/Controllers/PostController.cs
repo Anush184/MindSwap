@@ -15,7 +15,7 @@ namespace MindSwap.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class PostController : ControllerBase
     {
         private readonly IMediator _mediator;

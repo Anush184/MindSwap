@@ -1,6 +1,34 @@
 ﻿@page "/"
-<h3>Please help me</h3>
+<PageTitle>Index</PageTitle>
+<h1 class="text-left">MindSwap</h1>
+<h3 class="text-center">Where Ideas Connect and Minds Collide!</h3>
+<br/>
+<br/>
 
-@code {
+<AuthorizeView>
+    <Authorized>
+        <button class="btn btn-danger" onclick="Logut">Logout</button>
+    </Authorized>
+    <NotAuthorized>
+        <button class="btn btn-success" onclick="GoToLogin">Login</button>
+        ||
+        <button class="btn btn-primary" onclick="GoToRegister">Register</button>
 
-}
+    </NotAuthorized>
+</AuthorizeView>
+
+
+<h3>Home</h3>
+
+<h3>Categories</h3>
+
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+

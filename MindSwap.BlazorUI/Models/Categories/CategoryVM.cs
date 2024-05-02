@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MindSwap.BlazorUI.Moduls.Categories
+namespace MindSwap.BlazorUI.Models.Categories
 {
     public class CategoryVM
     {

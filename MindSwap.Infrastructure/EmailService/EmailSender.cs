@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using MindSwap.Application.Contracts.Email;
-using MindSwap.Application.Moduls.Email;
+using MindSwap.Application.Models.Email;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System;

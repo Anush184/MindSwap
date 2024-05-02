@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MindSwap.Application\MindSwap.Application.csproj" />
+    <ProjectReference Include="..\MindSwap.Identity\MindSwap.Identity.csproj" />
     <ProjectReference Include="..\MindSwap.Infrastructure\MindSwap.Infrastructure.csproj" />
     <ProjectReference Include="..\MindSwap.Persistence\MindSwap.Persistence.csproj" />
   </ItemGroup>
