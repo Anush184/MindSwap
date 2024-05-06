@@ -4,7 +4,7 @@ using MindSwap.Application.Contracts.Logging;
 using MindSwap.Application.Contracts.Persistence;
 using MindSwap.Application.Exceptions;
 using MindSwap.Application.Features.PostFeature.Commands.CancelPost;
-using MindSwap.Application.Moduls.Email;
+using MindSwap.Application.Models.Email;
 using MindSwap.Domain;
 using System;
 using System.Collections.Generic;

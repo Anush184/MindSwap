@@ -1,0 +1,65 @@
+﻿@page "/categories/"
+<h3>Categories</h3>
+
+@if(string.IsNullOrEmpty(Message) == false)
+{
+    <div class="alert alert-danger">
+        @Message
+    </div>
+}
+
+@if (Categories == null)
+{
+    <p>Loading data...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tblody>
+            @foreach(var category in Categories)
+            {
+                <tr>
+                    <td>@category.Id</td>
+                    <td>@category.Name</td>
+                    <td>@category.Description</td>
+                    <td>
+                       <AuthorizeView Roles="Administrator">
+                            <button onclick=@(()=> CreateCategory) 
+                                class="btn btn-warning">Add                 
+                            </button>
+                            <button onclick=@(()=> EditCategory(category.Id))
+                                class="btn btn-warning">
+                                Edit
+                            </button>
+                            <button onclick=@(()=> DeleteCategory(category.Id))
+                                class="btn btn-danger">
+                                Delete
+                            </button>
+
+                        </AuthorizeView>
+                        <button onclick=@(()=> DetailsCategory(category.Id))
+                            class="btn btn-info">
+                            Details
+                        </button>
+                       
+                    </td>
+                </tr>
+            }
+        </tblody>
+
+    </table>
+}

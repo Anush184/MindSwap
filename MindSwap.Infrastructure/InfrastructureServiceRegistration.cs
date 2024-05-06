@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using MindSwap.Application.Contracts.Email;
 using MindSwap.Application.Contracts.Logging;
-using MindSwap.Application.Moduls.Email;
+using MindSwap.Application.Models.Email;
 using MindSwap.Infrastructure.EmailService;
 using MindSwap.Infrastructure.Logging;
 using System;

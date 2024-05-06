@@ -14,7 +14,7 @@ namespace MindSwap.Application.Features.CommentFeature.Queries.GetCommentDetails
         public int PostId { get; set; }
         public PostDto Post { get; set; }
         public DateTime DateCreated { get; set; }
-        public DateTime? DateModifired { get; set; }
+        public DateTime? DateModified { get; set; }
         public bool? Approved { get; set; }
         public bool Canceled { get; set;}
     }

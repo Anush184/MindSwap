@@ -1,4 +1,4 @@
-﻿using MindSwap.Application.Moduls.Email;
+﻿using MindSwap.Application.Models.Email;
 using System;
 using System.Collections.Generic;
 using System.Linq;

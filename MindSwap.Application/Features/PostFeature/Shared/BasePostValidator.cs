@@ -28,6 +28,10 @@ namespace MindSwap.Application.Features.PostFeature.Shared
                .NotEmpty().WithMessage("{PropertyName} is required")
                .NotNull();
 
+            RuleFor(p => p.Title)
+               .NotEmpty().WithMessage("{PropertyName} is required")
+               .NotNull();
+
             RuleFor(p => p)
                 .MustAsync(PostContentUnique)
                 .WithMessage("Post already exists");

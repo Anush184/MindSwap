@@ -11,7 +11,7 @@ namespace MindSwap.Domain.Common
     {
         [Key]
         public int Id { get; set; }
-        public DateTime DateCreated { get; set; }
-        public DateTime? DateModifired { get; set;}
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateModified { get; set;}
     }
 }

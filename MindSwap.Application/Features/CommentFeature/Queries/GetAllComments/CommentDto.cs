@@ -15,6 +15,6 @@ namespace MindSwap.Application.Features.CommentFeature.Queries.GetAllComments
         public int PostId { get; set; }
         public PostDto Post { get; set; }
         public DateTime DateCreated { get; set; }
-        public DateTime? DateModifired { get; set; }
+        public DateTime? DateModified { get; set; }
     }
 }

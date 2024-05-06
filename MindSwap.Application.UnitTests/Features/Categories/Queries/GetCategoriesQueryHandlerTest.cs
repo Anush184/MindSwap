@@ -39,7 +39,7 @@ namespace MindSwap.Application.UnitTests.Features.Categories.Queries
                 _mockAppLoger.Object);
             var result = await handler.Handle(new GetCategoriesQuery(), CancellationToken.None);
             result.ShouldBeOfType<List<CategoryDto>>();
-            //result.Count.ShouldBe(3);
+            result.Count.ShouldBe(3);
         }
     }
 }
